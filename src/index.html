@@ -1,28 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>AMS Assistant</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-    hello veu
-    <div id="app">
-      {{ message }}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="import" href="./components/about.html">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/bootstrap.css">
+  <link rel="stylesheet" href="./assets/css/dashboard.css">
+  <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.css">
+  <title>AMS Assistant</title>
+  <script src="./assets/vue/vue.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-3 d-none d-md-block col-lg-2 bg-light sidebar">
+        <div class="sidebar-sticky">
+          <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span><i class="fa fa-bar-chart fa-fw" aria-hidden="true"></i>&nbsp;微报表<span class="fubiaoti">MicroReport</span></span>
+            
+          </h5>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                Current month
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                Last quarter
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                Social engagement
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                Year-end sale
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10">
+        <div class="content js-content"></div>
+      </main>
     </div>
-    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <script src="./assets/vue/vue.js"></script>
-    <script src="./assets/components/init-component.js"></script>
-    <script>
-      // You can also require other files to run in this process
-      require('./assets/renderer.js')
-    </script>
-  </body>
+  </div>
+  <script>
+    require('./assets/import.js')
+    require('./renderer-process/renderer.js')
+  </script>
+</body>
+
 </html>
