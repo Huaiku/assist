@@ -1,0 +1,80 @@
+<template class="task-template">
+    <style>
+        #reportInfo .input-group-text {
+            background-color: rgba(0, 0, 0, 0);
+            border: 0;
+        }
+        #searchBox{
+            border: 0;
+        }
+        .border-box-bottom {
+            border-bottom: 1px solid #d0d0d0;
+        }
+        /* 清除input边框和阴影 */
+        #reportInfo input.form-control:focus {
+            border-color: white;
+            box-shadow:none;
+        }
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .5s;
+        }
+        .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+            opacity: 0;
+        }
+    </style>
+    <div id="reportInfo" class="row pl-2 pr-2 ml-2">
+        <div class="col-6" id="search-box">
+            <div class="input-group border-box-bottom row mb-1">
+                <input type="text" class="form-control" v-model="condition" v-on:keyup="search" id="searchBox"
+                    placeholder="查找内容...">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i v-bind:class="arrow" aria-hidden="true"></i></div>
+                </div>
+            </div>
+
+            <transition name="fade">
+                <div class="row" v-if="ifDisplay">
+                    <div class="col-12 pl-0">
+                        <ul class="list-group mr-3">
+                            <li v-for="rt in result" class="list-group-item d-flex  align-items-center">
+                                {{rt.text}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </transition>
+        </div>
+    </div>
+    <script>
+        var _search_box = new Vue({
+            el: '#search-box',
+            data: {
+                condition: '',
+                ifDisplay: false,
+                result: [{ text: '在管' }, { text: '月刊' }, { text: '约看' }, { text: '待租' }],
+                preCondition: ''
+            },
+            methods: {
+                search: function (event) {
+                    this.ifDisplay = this.condition == '' ? false : true;
+                    if (this.preCondition != this.condition) {
+                        this.result.push({ text: '新月刊' });
+                        this.preCondition = this.condition;
+                    } else if(this.condition == '') {
+                        this.result = [];
+                    }
+                }
+            },
+            computed: {
+                arrow: function () {
+                    return {
+                        'fa fa-angle-double-down': this.ifDisplay,
+                        'fa fa-angle-double-left': !this.ifDisplay
+                    }
+                }
+            }
+        })
+
+
+    </script>
+</template>

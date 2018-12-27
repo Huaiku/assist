@@ -4,60 +4,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <!-- import template -->
   <link rel="import" href="./components/about.html">
+  <link rel="import" href="./components/reportConfig.html">
+  <link rel="import" href="./components/reportInfo.html">
+  <!-- import template -->
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./assets/css/bootstrap.css">
   <link rel="stylesheet" href="./assets/css/dashboard.css">
   <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.css">
   <title>AMS Assistant</title>
+  <script>
+    window.nodeRequire = require;
+    // __winrequire = window.require;
+    // __winexports = window.exports;
+    // __winmodule = window.module;
+  </script>
   <script src="./assets/vue/vue.js"></script>
 </head>
 
 <body>
   <div class="container-fluid">
     <div class="row">
-      <nav class="col-md-3 d-none d-md-block col-lg-2 bg-light sidebar">
+      <nav class="col-md-3 d-none d-md-block col-lg-3 bg-light sidebar">
         <div class="sidebar-sticky">
           <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span><i class="fa fa-bar-chart fa-fw" aria-hidden="true"></i>&nbsp;微报表<span class="fubiaoti">MicroReport</span></span>
-            
+            <span><i class="fa fa-bar-chart fa-fw" aria-hidden="true"></i>&nbsp;微报表</span>
           </h5>
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
+          <ul class="nav flex-column mb-2 m-2 p-2">
+            <li class="nav-item mr-5" data-section="reportInfo">
               <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Current month
+                <span class="h6"><i class="fa fa-info fa-fw" aria-hidden="true"></i>&nbsp;报表信息</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mr-5" data-section="reportConfig">
               <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Last quarter
+                <span class="h6"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;报表配置</span>
               </a>
             </li>
-            <li class="nav-item">
+
+            <!-- test -->
+            <li class="nav-item mr-5" data-section="about">
               <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Social engagement
+                <span class="h6"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;报表配置</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Year-end sale
-              </a>
-            </li>
+            <!-- test -->
           </ul>
         </div>
       </nav>
 
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10">
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-9">
         <div class="content js-content"></div>
       </main>
     </div>
   </div>
+  <script src="./assets/js/jquery.min.js"></script>
   <script>
     require('./assets/import.js')
+    require('./assets/page.js')
     require('./renderer-process/renderer.js')
   </script>
 </body>

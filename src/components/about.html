@@ -1,10 +1,26 @@
 <template class="task-template">
-    <div id="about-modal">
-        <h1>我i哈哈哈哈哈哈哈哈{{msg}}</h1>
+    <style>
+        #about .card img {
+            width: 128px;
+        }
+    </style>
+    <div id="about">
+        <div class="card border-0 p-5 m-5">
+            <img class="card-img-top m-auto" src="./assets/icons/ico-about.png" height="128" alt="Card image cap">
+            <div class="h2">
+                AMS Assistant
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>相寓小助手，微报表轻松管理、报表字典值配置与查询、分公司集中管理</p>
+                    <footer class="blockquote-footer text-right">@ 相寓技术中心支持</footer>
+                </blockquote>
+            </div>
+        </div>
     </div>
     <script>
         new Vue({
-            el: '#about-modal',
+            el: '#about',
             data: {
                 msg: 'test..............'
             }
