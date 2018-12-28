@@ -42,6 +42,10 @@ body {
     }
 }
 
+.sidebar .nav-item {
+    height: 38px;
+}
+
 .sidebar .nav-link {
     font-weight: 500;
     color: #333;
@@ -49,19 +53,22 @@ body {
 }
 
 .sidebar .nav-item.item-active .nav-link {
-    color: #ff8696;
+    color: #c14294;
 }
 
 .sidebar .nav-item.item-active {
     padding-left: 1.5rem;
-    border-right: 3px solid #ff8696;
-    border-bottom-right-radius: 10px;
-    /* 用图画做各小鸡儿 */
+}
+.sidebar .nav-item.item-active div.active-tag {
+  background-image: url(../icons/zs-active-sm.png);
+  background-repeat: no-repeat;
+  background-position: 0% 50%; 
 }
 
-.sidebar .nav-item:hover {
+.sidebar .nav-item:hover,
+.sidebar .nav-item:hover .nav-link {
     color: white;
-    background-color: #86d3ff;
+    background-color: #007bff;
     padding-left: 1.5rem;
 }
 

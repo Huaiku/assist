@@ -7,4 +7,10 @@ Array.prototype.forEach.call(links,(link)=>{
     let template = link.import.querySelector('.task-template');
     let clone = document.importNode(template.content, true);
     document.querySelector('.content').appendChild(clone);
+    // 隐藏所有
+    document.body.querySelectorAll('main[role="main"] div.content>div').forEach(block => {
+        block.classList.add('hide-section');
+    })
+    // 默认显示about
+    document.body.querySelector(`#about`).classList.remove('hide-section');
 });
